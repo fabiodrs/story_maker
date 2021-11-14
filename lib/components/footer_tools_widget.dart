@@ -21,8 +21,46 @@ class FooterToolsWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(top: 4, right: 16),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            ElevatedButton(
+              onPressed: () { Navigator.of(context).maybePop(); },
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all(
+                  const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(18),
+                    ),
+                  ),
+                ),
+                shadowColor: MaterialStateProperty.all(Colors.white),
+                backgroundColor: MaterialStateProperty.all(Colors.white),
+              ),
+              child: doneButtonChild ??
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        children: const [
+                          SizedBox(width: 4),
+                          Text(
+                            'Cancelar',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 12,
+                            ),
+                          ),
+                          SizedBox(width: 4),
+                          Icon(
+                            CupertinoIcons.xmark_circle,
+                            color: Colors.black,
+                            size: 18,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+            ),
             ElevatedButton(
               onPressed: onDone,
               style: ButtonStyle(
@@ -44,7 +82,7 @@ class FooterToolsWidget extends StatelessWidget {
                         children: const [
                           SizedBox(width: 4),
                           Text(
-                            'Add to story',
+                            'Adicionar aos Spots',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 12,
