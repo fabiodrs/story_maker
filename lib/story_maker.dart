@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:image/image.dart' as img;
 import 'package:path_provider/path_provider.dart';
 import 'package:photo_view/photo_view.dart';
 
@@ -408,8 +409,11 @@ class _StoryMakerState extends State<StoryMaker> {
     final directory = (await getApplicationDocumentsDirectory()).path;
     final byteData = (await image.toByteData(format: ui.ImageByteFormat.png))!;
     final pngBytes = byteData.buffer.asUint8List();
-    final imgFile = File('$directory/${DateTime.now()}.png');
-    await imgFile.writeAsBytes(pngBytes).then((value) {
+    final imgFile = File('$directory/${DateTime.now()}.jpg');
+    final jpgImage = img.decodeImage(pngBytes);
+    final encodedImage = img.encodeJpg(jpgImage!);
+    //_image = File(editedFile.path)..writeAsBytesSync(encodedImage);
+    await imgFile.writeAsBytes(encodedImage).then((value) {
       // done: return imgFile
       Navigator.of(context).pop(imgFile);
     });
