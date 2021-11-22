@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import '../extensions/context_extension.dart';
 
 class FooterToolsWidget extends StatelessWidget {
   final AsyncCallback onDone;
@@ -15,8 +16,7 @@ class FooterToolsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 120,
-      color: Colors.black,
+      height: context.bottomPadding + kToolbarHeight,
       alignment: Alignment.topCenter,
       child: Padding(
         padding: const EdgeInsets.only(top: 4, right: 16),
