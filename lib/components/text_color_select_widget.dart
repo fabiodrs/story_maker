@@ -23,7 +23,8 @@ class TextColorSelectWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedPositioned(
       duration: animationsDuration,
-      bottom: MediaQuery.of(context).viewInsets.bottom - 92,
+      //bottom: MediaQuery.of(context).viewInsets.bottom - 92,
+      bottom: MediaQuery.of(context).viewInsets.bottom + 12 - 120,
       right: 0,
       left: 0,
       child: Container(

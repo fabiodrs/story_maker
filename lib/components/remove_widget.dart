@@ -26,7 +26,8 @@ class RemoveWidget extends StatelessWidget {
     return Visibility(
       visible: !isTextInput,
       child: Positioned(
-        bottom: 19,
+        //bottom: 19,
+        bottom: 32,
         child: AnimatedSwitcher(
           duration: animationsDuration,
           child: _activeItem == null

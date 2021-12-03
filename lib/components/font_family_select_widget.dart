@@ -24,7 +24,8 @@ class FontFamilySelectWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedPositioned(
       duration: animationsDuration,
-      bottom: context.media.viewInsets.bottom - 92,
+      //bottom: context.media.viewInsets.bottom - 92,
+      bottom: context.media.viewInsets.bottom + 12 - 120,
       right: 0,
       left: 0,
       child: Container(
